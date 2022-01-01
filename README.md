@@ -39,6 +39,7 @@ puts account.profile()
 Change password:
 ```rb
 account.change_password('current', 'new')
+```
 
 # Subreddit
 Get subreddit:
