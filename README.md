@@ -20,7 +20,7 @@ client = reddit::Client
 sub = client.get_subreddit("ruby")
 
 # get top 10 recent posts from the subreddit
-posts = sub.get_posts(branch: "new", limit: 10)
+posts = sub.posts(branch: "new", limit: 10)
 
 # display posts
 puts posts
@@ -30,7 +30,7 @@ puts posts
 # Account
 Get account:
 ```rb
-account = client.account
+account = client.account()
 ```
 Display account details:
 ```rb
