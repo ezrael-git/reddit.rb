@@ -42,6 +42,12 @@ class Subreddit
 
   # get subreddit posts
   def posts (branch: nil, limit: 1)
+    """
+    Arguments:
+      branch (string) : the branch to pull from
+      limit (integer) : how many posts to return
+    ..
+    """
     r = @http.get(@url + "posts/" + branch, @headers, body)
     posts = []
     r.body.each do |post|
