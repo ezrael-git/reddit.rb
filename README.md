@@ -11,19 +11,19 @@ git clone https://github.com/ezrael-git/reddit.rb.git
 ```rb
 require_relative "reddit.rb"
 
-# establish base instance
-reddit = Reddit.new ("API_KEY")
 # establish client
-client = reddit::Client
+client = Reddit::Client.new("AUTHORIZATION_KEY")
 
 # get a subreddit
 sub = client.get_subreddit("ruby")
 
 # get top 10 recent posts from the subreddit
-posts = sub.posts(branch: "new", limit: 10)
+posts = sub.get_posts(branch: "new", limit: 10)
 
-# display posts
-puts posts
+# display all posts' titles
+posts.forEach do |post|
+  puts post.title
+end
 
 ```
 
@@ -32,13 +32,14 @@ Get account:
 ```rb
 account = client.account()
 ```
-Display account details:
+Get account username:
 ```rb
-puts account.profile()
+account.username
 ```
-Change password:
+Post a post:
+(currently only supports text posts)
 ```rb
-account.change_password('current', 'new')
+account.post('subreddit', 'title', 'body')
 ```
 
 # Subreddit
@@ -54,11 +55,12 @@ client.create_subreddit('name')
 # Posts
 Get top post:
 ```rb
-post = subreddit.posts(branch: 'top', limit: 1)
+post = subreddit.get_posts(branch: 'top', limit: 1)
 ```
-Get post title:
+Get post body:
+(returns URL if it's an image)
 ```rb
-post.title
+post.body
 ```
 
 
