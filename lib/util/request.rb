@@ -19,7 +19,7 @@ class Req
     @headers = {
       "Authorization" => "Bearer " + @auth
     }
-    @url = "https://oauth.reddit.com/api/v1/me/"
+    @url = "https://oauth.reddit.com/api/v1/" # can be changed
   end
 
 
