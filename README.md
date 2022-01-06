@@ -11,8 +11,10 @@ git clone https://github.com/ezrael-git/reddit.rb.git
 ```rb
 require_relative "reddit.rb"
 
-# establish client
-client = Reddit::Client.new("AUTHORIZATION_KEY")
+# get client object
+reddit = Reddit.new('CLIENT_ID', 'SECRET_TOKEN')
+client = reddit.get_client()
+
 
 # get a subreddit
 sub = client.get_subreddit("ruby")
@@ -21,7 +23,7 @@ sub = client.get_subreddit("ruby")
 posts = sub.get_posts(branch: "new", limit: 10)
 
 # display all posts' titles
-posts.forEach do |post|
+posts.each do |post|
   puts post.title
 end
 
@@ -65,6 +67,6 @@ post.body
 
 
 
-# Contact
+# Contribution
+This is an open project. You are welcome to contribute.
 If you have any questions, feel free to open a discussion on the project's repository.
-You can also DM me on Discord: Azrael#1912
