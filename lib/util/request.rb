@@ -4,7 +4,7 @@
 require "httparty"
 
 
-class Req
+class Request
   attr_accessor :auth
   attr_accessor :headers
   attr_accessor :url
