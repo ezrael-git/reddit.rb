@@ -6,15 +6,18 @@ class Cache
   attr_accessor :type
   attr_accessor :type_int
   attr_accessor :cache
+  attr_accessor :label
 
-  def initialize (type: "list", discard: false, discard_time: 0)
+  def initialize (label: nil, type: "list", discard: false, discard_time: 0)
   """
   Arguments:
+    label (string) : the name of the cache
     type (string) : the type of the cache
     discard (boolean) : whether to discard items
     discard_time (integer) : after which the items will be discarded if not used
   """
-  
+
+  @label = label
   @type = type
   @type_int = if type == "list" then 0 else 1 end
   @discard = discard
