@@ -22,7 +22,7 @@ class Reddit
       # got the data, lets send a request to get the access token
       r = http.post("https://www.reddit.com/api/v1/access_token",
                     :basic_auth => auth,
-                    :headeds => headers)
+                    :headers => headers)
                     
       # now we can convert the response to json, and get our token
       @access_token = r.to_json['access_token']
