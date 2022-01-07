@@ -9,6 +9,7 @@ require_relative "class/client.rb"
 
 
 class Reddit
+  attr_getter :access_token
 
   def initialize (client_id= 0, secret_token= 0, access_token: 0)
     # if access token is none, lets get it
